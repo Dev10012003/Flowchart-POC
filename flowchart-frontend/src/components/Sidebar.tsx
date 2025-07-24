@@ -2,9 +2,15 @@ import React from "react";
 
 interface SidebarProps {
   onDelete: () => void;
+  onLoad: () => void;
+  onSave: () => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ onDelete }) => {
+export const Sidebar: React.FC<SidebarProps> = ({
+  onDelete,
+  onLoad,
+  onSave,
+}) => {
   const onDragStart = (e: React.DragEvent, type: string) => {
     e.dataTransfer.setData("shapeType", type);
     e.dataTransfer.effectAllowed = "move";
@@ -25,6 +31,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ onDelete }) => {
       ))}
 
       <hr />
+      <button onClick={onLoad} className="sidebar-load-button">
+        Load
+      </button>
+      <button onClick={onSave} className="sidebar-save-button">
+        Save
+      </button>
       <button onClick={onDelete} className="sidebar-delete-button">
         Delete
       </button>
