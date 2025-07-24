@@ -28,7 +28,7 @@ function App() {
 
   const loadFlowchart = useCallback(async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/flowchart/${flowchartId}`);
+      const response = await fetch(`${API_BASE_URL}/${flowchartId}`);
       const result = await response.json();
 
       if (result.success && result.data?.flowchartData) {
@@ -80,7 +80,7 @@ function App() {
       //   });
       // }
 
-      const response = await fetch(`${API_BASE_URL}/flowchart/save`, {
+      const response = await fetch(`${API_BASE_URL}/save`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
