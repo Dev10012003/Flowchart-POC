@@ -154,16 +154,13 @@ export const FlowCanvas = React.forwardRef<ICanvasHandle>((_, ref) => {
         window.alert("No nodes in canvas — skipping screenshot.");
         return null;
       }
-
       const instance = rfi.current;
-      const currentTransform = instance.getViewport();
+      // const currentTransform = instance.getViewport();
       const controlsEl = document.querySelector(".reactflow-controls");
       controlsEl?.classList.add("hide");
-
       try {
         instance.fitView({ padding: 0.1 });
         await new Promise((res) => setTimeout(res, 200));
-
         const dataUrl = await htmlToImage.toPng(wrapperRef.current, {
           backgroundColor: "#ffffff",
           style: { margin: "0", padding: "0" },
@@ -173,7 +170,7 @@ export const FlowCanvas = React.forwardRef<ICanvasHandle>((_, ref) => {
         console.error("Screenshot failed:", err);
         return null;
       } finally {
-        instance.setViewport(currentTransform);
+        // instance.setViewport(currentTransform);
         controlsEl?.classList.remove("hide");
       }
     },
@@ -211,7 +208,7 @@ export const FlowCanvas = React.forwardRef<ICanvasHandle>((_, ref) => {
           id: uuid(),
           type: "custom",
           data: { label: "" },
-          markerEnd: { type: MarkerType.ArrowClosed },
+          markerEnd: { type: MarkerType.ArrowClosed, orient: "auto" },
           interactionWidth: 20,
         },
         eds

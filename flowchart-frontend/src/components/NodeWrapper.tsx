@@ -119,15 +119,17 @@ export const NodeWrapper: React.FC<INodeWrapperProps> = ({
       >
         <div className="node-wrapper-content">{children}</div>
       </div>
-      <div className="resize-overlay">
-        {allResizeHandles.map(({ dir, className }) => (
-          <div
-            key={dir}
-            className={`resize-zone ${className} nodrag`}
-            onMouseDown={(e) => onResizeStart(e, dir as ResizeDirection)}
-          />
-        ))}
-      </div>
+      {data.selected && (
+        <div className="resize-overlay">
+          {allResizeHandles.map(({ dir, className }) => (
+            <div
+              key={dir}
+              className={`resize-zone ${className} nodrag`}
+              onMouseDown={(e) => onResizeStart(e, dir as ResizeDirection)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Sidebar } from "./components/Sidebar";
 import "./App.css";
 import { ICanvasHandle } from "./interfaces";
 import { API_BASE_URL } from "./utils/constant";
+import { toast, ToastContainer } from "react-toastify";
 
 function App() {
   const canvasRef = useRef<ICanvasHandle>(null);
@@ -24,7 +25,7 @@ function App() {
   //   const flowData = canvasRef.current?.getData();
   //   if (flowData) {
   //     localStorage.setItem("flowchart", JSON.stringify(flowData));
-  //     alert("Diagram saved to local storage!");
+  //     toast.success("Diagram saved to local storage!");
   //   }
   // };
 
@@ -32,19 +33,21 @@ function App() {
     async (showAlert = true) => {
       setLoading(true);
       try {
-        const response = await fetch(`${API_BASE_URL}/${flowchartId}`);
+        const response = await fetch(
+          `${API_BASE_URL}/flowchart/${flowchartId}`
+        );
         const result = await response.json();
 
         if (result.success && result.data?.flowchartData) {
           const parsedData = JSON.parse(result.data.flowchartData);
           canvasRef.current?.setData(parsedData);
         } else if (showAlert) {
-          alert("Failed to fetch flowchart data.");
+          toast.error("Failed to fetch flowchart data.");
         }
       } catch (error) {
         console.error("Error loading flowchart:", error);
         if (showAlert) {
-          alert("Error occurred while loading.");
+          toast.error("Error occurred while loading.");
         }
       } finally {
         setLoading(false);
@@ -58,7 +61,7 @@ function App() {
     const imageUrl = await canvasRef.current?.takeScreenshot();
 
     if (!flowData || !imageUrl) {
-      alert("Failed to generate data or screenshot.");
+      toast.error("Failed to generate data.");
       return;
     }
 
@@ -66,7 +69,7 @@ function App() {
 
     setLoading(true);
     try {
-      const response = await fetch(`${API_BASE_URL}/save`, {
+      const response = await fetch(`${API_BASE_URL}/flowchart/save`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -78,13 +81,13 @@ function App() {
       const result = await response.json();
 
       if (result.success) {
-        alert("Flowchart and screenshot saved successfully!");
+        toast.success("Flowchart saved successfully!");
       } else {
-        alert("Failed to save to server.");
+        toast.error("Failed to save to server.");
       }
     } catch (error) {
       console.error("Error saving to server:", error);
-      alert("Error occurred while saving.");
+      toast.error("Error occurred while saving.");
     } finally {
       setLoading(false);
     }
@@ -108,6 +111,7 @@ function App() {
         </div>
 
         <FlowCanvas ref={canvasRef} />
+        <ToastContainer position="top-right" autoClose={3000} />
       </div>
     </div>
   );

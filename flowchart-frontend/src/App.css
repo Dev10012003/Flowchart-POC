@@ -322,3 +322,7 @@
 .sidebar-delete-button:hover {
   background: #e24344;
 }
+
+.react-flow__handle {
+  border: none;
+}
