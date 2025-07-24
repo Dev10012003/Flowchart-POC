@@ -1,0 +1,10 @@
+# Ignore backend build output
+flowchart-backend/dist/
+flowchart-backend/node_modules/
+flowchart-backend/.env
+flowchart-backend/*.tsbuildinfo
+
+# Ignore frontend build output
+flowchart-frontend/build/
+flowchart-frontend/node_modules/
+flowchart-frontend/.env

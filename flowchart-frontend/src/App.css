@@ -1,0 +1,292 @@
+.react-flow__node .nodrag {
+  pointer-events: all;
+}
+
+.shape-buttons {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+.sidebar {
+  width: 150px;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+
+.sidebar-shape {
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #f2f2f2;
+  cursor: grab;
+  text-align: center;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.sidebar-delete-button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 0;
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sidebar-delete-button:hover {
+  background: #e24344;
+}
+
+.custom-edge path {
+  stroke: #333;
+  stroke-width: 2;
+}
+
+.selected-edge path {
+  stroke: blue !important;
+}
+
+.custom-edge .react-flow__edge-text {
+  font-weight: bold;
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.process-node {
+  background: #eaf0ff;
+  border: 2px solid #2980b9;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.custom-edge path {
+  transition: stroke 0.2s ease !important;
+}
+
+.custom-edge.selected-edge path {
+  stroke: blue !important;
+}
+
+.custom-edge-click-path {
+  cursor: pointer;
+}
+
+.custom-edge-label-container {
+  position: absolute;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.custom-edge-input {
+  font-size: 12px;
+  width: 80px;
+  padding: 2px 4px;
+  background-color: yellow;
+}
+
+.custom-edge-label-box {
+  background: yellow;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid black;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+.custom-edge-label-selected {
+  border: 1px solid blue;
+}
+
+.selected-node .resize-overlay {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #2684ff;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.selected-node:hover .resize-handle {
+  display: block;
+}
+
+.resize-zone {
+  position: absolute;
+  z-index: 11;
+  pointer-events: auto;
+}
+
+.resize-zone.top {
+  top: -4px;
+  left: 0;
+  height: 8px;
+  width: 100%;
+  cursor: ns-resize;
+}
+.resize-zone.bottom {
+  bottom: -4px;
+  left: 0;
+  height: 8px;
+  width: 100%;
+  cursor: ns-resize;
+}
+.resize-zone.left {
+  top: 0;
+  left: -4px;
+  width: 8px;
+  height: 100%;
+  cursor: ew-resize;
+}
+.resize-zone.right {
+  top: 0;
+  right: -4px;
+  width: 8px;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.resize-zone.top-left {
+  top: -6px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  cursor: nwse-resize;
+}
+.resize-zone.top-right {
+  top: -6px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  cursor: nesw-resize;
+}
+.resize-zone.bottom-left {
+  bottom: -6px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  cursor: nesw-resize;
+}
+.resize-zone.bottom-right {
+  bottom: -6px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  cursor: nwse-resize;
+}
+
+.node-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 14px;
+  outline: none;
+  font-weight: bold;
+}
+
+.end-node {
+  background: #ffd6d6;
+  border: 2px solid #e74c3c;
+  border-radius: 999px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.start-node {
+  background: #dfffd6;
+  border: 2px solid #27ae60;
+  border-radius: 999px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.decision-node-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.decision-node-polygon {
+  fill: #fff4d6;
+  stroke: #f1c40f;
+  stroke-width: 2;
+}
+
+.decision-node-input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 80%;
+  text-align: center;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  outline: none;
+  pointer-events: auto;
+}
+
+.io-node-container {
+  background: #e0f7fa;
+  border: 2px solid #00acc1;
+  transform: skewX(-20deg);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.io-node-input {
+  transform: skewX(20deg);
+  width: 90%;
+  background: transparent;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  z-index: 1;
+  outline: none;
+}
+
+.node-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.node-wrapper-inner {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.node-wrapper-content {
+  pointer-events: auto;
+}
+
+.reactflow-controls.hide {
+  display: none !important;
+}
+
+.process-node {
+  cursor: crosshair;
+}
