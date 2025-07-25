@@ -1,11 +1,11 @@
-import { useEffect, useRef, useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "./App.css";
 import { FlowCanvas } from "./FlowCanvas";
 import { ShapeButtons } from "./components/ShapeButtons";
 import { Sidebar } from "./components/Sidebar";
-import "./App.css";
 import { ICanvasHandle } from "./interfaces";
 import { API_BASE_URL } from "./utils/constant";
-import { toast, ToastContainer } from "react-toastify";
 
 function App() {
   const canvasRef = useRef<ICanvasHandle>(null);
@@ -20,14 +20,6 @@ function App() {
       canvasRef.current?.setData(parsed);
     }
   };
-
-  // const handleSave = () => {
-  //   const flowData = canvasRef.current?.getData();
-  //   if (flowData) {
-  //     localStorage.setItem("flowchart", JSON.stringify(flowData));
-  //     toast.success("Diagram saved to local storage!");
-  //   }
-  // };
 
   const loadFlowchart = useCallback(
     async (showAlert = true) => {
@@ -107,7 +99,6 @@ function App() {
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <ShapeButtons onAdd={(type) => canvasRef.current?.addShape(type)} />
-          {/* <button onClick={handleSave}>Save</button> */}
         </div>
 
         <FlowCanvas ref={canvasRef} />

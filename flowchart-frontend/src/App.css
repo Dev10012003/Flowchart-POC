@@ -272,10 +272,6 @@
   display: none !important;
 }
 
-.process-node {
-  cursor: crosshair;
-}
-
 .sidebar-save-button {
   margin-top: 8px;
   padding: 8px 0;

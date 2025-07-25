@@ -9,7 +9,7 @@ export const ShapeButtons = ({ onAdd }: { onAdd: (type: string) => void }) => {
           className="shape-button"
           type="button"
         >
-          ➕ {t.charAt(0).toUpperCase() + t.slice(1)}
+          + {t.charAt(0).toUpperCase() + t.slice(1)}
         </button>
       ))}
     </div>

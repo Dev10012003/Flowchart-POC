@@ -9,11 +9,6 @@ export const allResizeHandles = [
   { dir: "right", className: "resize-handle right" },
 ];
 
-export const PROCESS_NODE_MIN_WIDTH = 100;
-export const PROCESS_NODE_MAX_WIDTH = 1000;
-export const PROCESS_NODE_MIN_HEIGHT = 25;
-export const PROCESS_NODE_MAX_HEIGHT = 500;
-
 export type ResizeDirection =
   | "top"
   | "right"
