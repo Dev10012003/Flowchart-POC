@@ -11,7 +11,7 @@ function App() {
   const canvasRef = useRef<ICanvasHandle>(null);
   const [loading, setLoading] = useState(false);
 
-  const flowchartId = "6881be7335c9cf1140605e26";
+  const flowchartId = "68831c8fbee2fbaf6bd16dde";
 
   const handleLoad = () => {
     const saved = localStorage.getItem("flowchart");

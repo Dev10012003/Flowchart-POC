@@ -208,7 +208,7 @@ export const FlowCanvas = React.forwardRef<ICanvasHandle>((_, ref) => {
           id: uuid(),
           type: "custom",
           data: { label: "" },
-          markerEnd: { type: MarkerType.ArrowClosed, orient: "auto" },
+          markerEnd: { type: MarkerType.ArrowClosed },
           interactionWidth: 20,
         },
         eds

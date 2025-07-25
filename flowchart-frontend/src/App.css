@@ -322,3 +322,20 @@
 .react-flow__handle {
   border: none;
 }
+
+.react-flow__edge-path {
+  stroke-width: 2;
+  stroke: #333;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: blue;
+}
+
+.react-flow__arrowhead {
+  fill: #333;
+}
+
+.react-flow__edge.selected .react-flow__arrowhead {
+  fill: blue;
+}
