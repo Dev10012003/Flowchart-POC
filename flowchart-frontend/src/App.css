@@ -320,7 +320,7 @@
 }
 
 .react-flow__handle {
-  border: none;
+  border: none !important;
 }
 
 .react-flow__edge-path {

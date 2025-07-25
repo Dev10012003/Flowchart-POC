@@ -10,7 +10,7 @@ export const createFlowchart = async (req, res) => {
     return res.status(201).json({
       success: true,
       message: "Flowchart created successfully.",
-      data: { id: data._id },
+      data: data,
     });
   } catch (error) {
     console.error("Create Error:", error);
