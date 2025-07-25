@@ -8,13 +8,23 @@ dotenv.config();
 
 const app = express();
 
+const allowedOrigins = [
+  process.env.CLIENT_ORIGIN,
+  "http://localhost:3000",
+  "https://localhost:3000",
+].filter(Boolean);
+
 app.use(
   cors({
-    origin:
-      process.env.CLIENT_ORIGIN ||
-      "http://localhost:3000" ||
-      "https://localhost:3000",
-    exposedHeaders: "Content-Disposition",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.warn(`CORS Rejected: ${origin}`);
+        callback(new Error("Not allowed by CORS: " + origin));
+      }
+    },
+    exposedHeaders: ["Content-Disposition"],
   })
 );
 
